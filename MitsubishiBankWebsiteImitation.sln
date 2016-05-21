@@ -3,8 +3,56 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.25302.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer.MitsubishiBankWebsite", "PresentationLayer.MitsubishiBankWebsite\PresentationLayer.MitsubishiBankWebsite.csproj", "{02253FE1-4FA8-4292-9E10-23382E3DDA2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0023AB0C-95BE-43E7-ADE1-F42EB00D0687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Core.MitsubishiBank", "Domain.Core.MitsubishiBank\Domain.Core.MitsubishiBank.csproj", "{D1F035DF-F3E3-4466-BC4A-65CE43C77536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Interfaces.MitsubishiBank", "Domain.Interfaces.MitsubishiBank\Domain.Interfaces.MitsubishiBank.csproj", "{B1ED721B-53CC-4802-B3B6-A5723398AB1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{81D5A80C-1601-4BBB-B038-396FC651D158}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Interfaces.MitsubishiBank", "Services.Interfaces.MitsubishiBank\Services.Interfaces.MitsubishiBank.csproj", "{6D9BA6DD-2B96-4DDA-9CD9-DAA1A466882A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4B6230DD-B6CA-4EDF-9EDF-D66618CCA8FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Data.MitsubishiBank", "Infrastructure.Data.MitsubishiBank\Infrastructure.Data.MitsubishiBank.csproj", "{A7E40682-9577-4109-BC1C-DAB752554988}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02253FE1-4FA8-4292-9E10-23382E3DDA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02253FE1-4FA8-4292-9E10-23382E3DDA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02253FE1-4FA8-4292-9E10-23382E3DDA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02253FE1-4FA8-4292-9E10-23382E3DDA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F035DF-F3E3-4466-BC4A-65CE43C77536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F035DF-F3E3-4466-BC4A-65CE43C77536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F035DF-F3E3-4466-BC4A-65CE43C77536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F035DF-F3E3-4466-BC4A-65CE43C77536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1ED721B-53CC-4802-B3B6-A5723398AB1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1ED721B-53CC-4802-B3B6-A5723398AB1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1ED721B-53CC-4802-B3B6-A5723398AB1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1ED721B-53CC-4802-B3B6-A5723398AB1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9BA6DD-2B96-4DDA-9CD9-DAA1A466882A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9BA6DD-2B96-4DDA-9CD9-DAA1A466882A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9BA6DD-2B96-4DDA-9CD9-DAA1A466882A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9BA6DD-2B96-4DDA-9CD9-DAA1A466882A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7E40682-9577-4109-BC1C-DAB752554988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7E40682-9577-4109-BC1C-DAB752554988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7E40682-9577-4109-BC1C-DAB752554988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7E40682-9577-4109-BC1C-DAB752554988}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1F035DF-F3E3-4466-BC4A-65CE43C77536} = {0023AB0C-95BE-43E7-ADE1-F42EB00D0687}
+		{B1ED721B-53CC-4802-B3B6-A5723398AB1C} = {0023AB0C-95BE-43E7-ADE1-F42EB00D0687}
+		{6D9BA6DD-2B96-4DDA-9CD9-DAA1A466882A} = {81D5A80C-1601-4BBB-B038-396FC651D158}
+		{A7E40682-9577-4109-BC1C-DAB752554988} = {4B6230DD-B6CA-4EDF-9EDF-D66618CCA8FA}
 	EndGlobalSection
 EndGlobal
