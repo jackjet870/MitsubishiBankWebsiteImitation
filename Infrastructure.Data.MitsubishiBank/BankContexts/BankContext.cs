@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Core.MitsubishiBank.BankCommon;
 
-namespace Infrastructure.Data.MitsubishiBank.BankContext
+namespace Infrastructure.Data.MitsubishiBank.BankContexts
 {
     public class BankContext : DbContext
     {
@@ -14,8 +14,8 @@ namespace Infrastructure.Data.MitsubishiBank.BankContext
         {
             
         }
-
         public DbSet<Bank> Banks { get; set; }
+
 
     }
 }

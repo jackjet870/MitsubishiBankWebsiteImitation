@@ -57,6 +57,18 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -109,6 +121,10 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -166,10 +182,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Intranet\AdminAccess\BankController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,8 +198,17 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Util\NinjectDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Bank\BankDb.mdf" />
+    <Content Include="App_Data\Bank\BankDb_log.ldf">
+      <DependentUpon>BankDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Listener\ListenerDb.mdf" />
+    <Content Include="App_Data\Listener\ListenerDb_log.ldf">
+      <DependentUpon>ListenerDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -251,12 +279,41 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Listener\ListenerFiles\" />
+    <Folder Include="Controllers\Internet\" />
+    <Folder Include="Views\Bank\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Core.MitsubishiBank\Domain.Core.MitsubishiBank.csproj">
+      <Project>{d1f035df-f3e3-4466-bc4a-65ce43c77536}</Project>
+      <Name>Domain.Core.MitsubishiBank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Interfaces.MitsubishiBank\Domain.Interfaces.MitsubishiBank.csproj">
+      <Project>{b1ed721b-53cc-4802-b3b6-a5723398ab1c}</Project>
+      <Name>Domain.Interfaces.MitsubishiBank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Business.MitsubishiBank\Infrastructure.Business.MitsubishiBank.csproj">
+      <Project>{85e0e7a6-1c11-4f7d-8489-809943b88465}</Project>
+      <Name>Infrastructure.Business.MitsubishiBank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Data.MitsubishiBank\Infrastructure.Data.MitsubishiBank.csproj">
+      <Project>{a7e40682-9577-4109-bc1c-dab752554988}</Project>
+      <Name>Infrastructure.Data.MitsubishiBank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services.Interfaces.MitsubishiBank\Services.Interfaces.MitsubishiBank.csproj">
+      <Project>{6d9ba6dd-2b96-4dda-9cd9-daa1a466882a}</Project>
+      <Name>Services.Interfaces.MitsubishiBank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services.Logger.MitsubishiBank\Services.Listener.MitsubishiBank.csproj">
+      <Project>{3f092f94-630c-42a1-9aeb-0b6baa1020a6}</Project>
+      <Name>Services.Listener.MitsubishiBank</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

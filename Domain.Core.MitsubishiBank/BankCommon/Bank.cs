@@ -14,6 +14,8 @@ namespace Domain.Core.MitsubishiBank.BankCommon
         public BankProfile Profile { get; set; }
         public List<BankAccount> Accounts { get; set; }
         public List<AutomatedTellerMachine> BankAutomatedTellerMachines { get; set; }
+        public List<BankOperationHistory> BankOperationsHistory { get; set; }
+
 
 
         public Bank()

@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Data.MitsubishiBank", "Infrastructure.Data.MitsubishiBank\Infrastructure.Data.MitsubishiBank.csproj", "{A7E40682-9577-4109-BC1C-DAB752554988}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Listener.MitsubishiBank", "Services.Logger.MitsubishiBank\Services.Listener.MitsubishiBank.csproj", "{3F092F94-630C-42A1-9AEB-0B6BAA1020A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Business.MitsubishiBank", "Infrastructure.Business.MitsubishiBank\Infrastructure.Business.MitsubishiBank.csproj", "{85E0E7A6-1C11-4F7D-8489-809943B88465}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{A7E40682-9577-4109-BC1C-DAB752554988}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7E40682-9577-4109-BC1C-DAB752554988}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7E40682-9577-4109-BC1C-DAB752554988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F092F94-630C-42A1-9AEB-0B6BAA1020A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F092F94-630C-42A1-9AEB-0B6BAA1020A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F092F94-630C-42A1-9AEB-0B6BAA1020A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F092F94-630C-42A1-9AEB-0B6BAA1020A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85E0E7A6-1C11-4F7D-8489-809943B88465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E0E7A6-1C11-4F7D-8489-809943B88465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E0E7A6-1C11-4F7D-8489-809943B88465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E0E7A6-1C11-4F7D-8489-809943B88465}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +66,7 @@ Global
 		{B1ED721B-53CC-4802-B3B6-A5723398AB1C} = {0023AB0C-95BE-43E7-ADE1-F42EB00D0687}
 		{6D9BA6DD-2B96-4DDA-9CD9-DAA1A466882A} = {81D5A80C-1601-4BBB-B038-396FC651D158}
 		{A7E40682-9577-4109-BC1C-DAB752554988} = {4B6230DD-B6CA-4EDF-9EDF-D66618CCA8FA}
+		{3F092F94-630C-42A1-9AEB-0B6BAA1020A6} = {81D5A80C-1601-4BBB-B038-396FC651D158}
+		{85E0E7A6-1C11-4F7D-8489-809943B88465} = {4B6230DD-B6CA-4EDF-9EDF-D66618CCA8FA}
 	EndGlobalSection
 EndGlobal
