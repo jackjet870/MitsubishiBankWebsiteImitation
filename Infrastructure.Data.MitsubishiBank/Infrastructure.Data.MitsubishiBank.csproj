@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankContexts\BankContext.cs" />
+    <Compile Include="BankContexts\BankContextController.cs" />
     <Compile Include="Repositories\BankRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

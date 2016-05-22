@@ -18,7 +18,7 @@ namespace Domain.Core.MitsubishiBank.BaseCommon
 
         public BaseProfile()
         {
-            ProfileGuid = new Guid().ToString();
+            ProfileGuid = Guid.NewGuid().ToString();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Domain.Core.MitsubishiBank.CustomerCommon
 
         public Customer()
         {
-            CustomerGuid = new Guid().ToString();
+            CustomerGuid = Guid.NewGuid().ToString();
         }
     }
 }

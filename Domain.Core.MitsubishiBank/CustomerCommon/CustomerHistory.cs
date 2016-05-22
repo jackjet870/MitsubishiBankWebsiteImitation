@@ -13,7 +13,7 @@ namespace Domain.Core.MitsubishiBank.CustomerCommon
 
         public CustomerHistory()
         {
-            CustomerHistoryGuid = new Guid().ToString();
+            CustomerHistoryGuid = Guid.NewGuid().ToString();
         }
     }
 }

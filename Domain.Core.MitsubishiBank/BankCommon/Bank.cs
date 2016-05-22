@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Core.MitsubishiBank.ATMCommon;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Core.MitsubishiBank.BankCommon
 {
     public class Bank
     {
+        [Key]
         public int BankId { get; set; }
         public string BankGuid { get; set; }
         public BankProfile Profile { get; set; }
@@ -20,7 +22,7 @@ namespace Domain.Core.MitsubishiBank.BankCommon
 
         public Bank()
         {
-            BankGuid = new Guid().ToString();
+            BankGuid = Guid.NewGuid().ToString();
         }
     }
 }

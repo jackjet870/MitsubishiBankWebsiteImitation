@@ -13,7 +13,7 @@ namespace Domain.Core.MitsubishiBank.BaseCommon
 
         public BaseAccount()
         {
-            AccountGuid = new Guid().ToString();
+            AccountGuid = Guid.NewGuid().ToString();
         }
     }
 }

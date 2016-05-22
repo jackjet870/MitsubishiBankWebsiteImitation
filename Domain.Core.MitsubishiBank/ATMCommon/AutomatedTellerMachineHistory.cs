@@ -22,7 +22,7 @@ namespace Domain.Core.MitsubishiBank.ATMCommon
 
         public AutomatedTellerMachineHistory()
         {
-            AutomatedTellerMachineHistoryGuid = new Guid().ToString();
+            AutomatedTellerMachineHistoryGuid = Guid.NewGuid().ToString();
         }
 
     }
