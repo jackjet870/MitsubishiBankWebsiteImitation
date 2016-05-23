@@ -1,5 +1,9 @@
 ﻿namespace MitsubishiBankWebsiteImitation
 {
+    /*
+     * 
+     * 
+     */
     class Domain
     {
         
