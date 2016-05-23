@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PresentationLayer.MitsubishiBankWebsite.Controllers.Base;
 
-namespace PresentationLayer.MitsubishiBankWebsite.Controllers
+namespace TestSection.Development.MVC.Modules.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {

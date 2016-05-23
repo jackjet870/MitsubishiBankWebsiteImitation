@@ -31,7 +31,7 @@ namespace PresentationLayer.MitsubishiBankWebsite.Controllers.Intranet.AdminAcce
             return View(bank);
         }
 
-        public ActionResult Test()
+        public void Test()
         {
             bankDb.Banks.Add(new Bank
             {
@@ -73,7 +73,20 @@ namespace PresentationLayer.MitsubishiBankWebsite.Controllers.Intranet.AdminAcce
             });
             bankDb.SaveChanges();
 
-            return Json(bankDb.Banks.Where(p => p.BankId == 1), JsonRequestBehavior.AllowGet);
+            
+        }
+
+        [HttpGet]
+        public ActionResult ShowBankMeta(Bank bank)
+        {
+            for (int i = 0; i < 100000; i++)
+            {
+                Test();
+            }
+            //Test();
+            var banks = bankDb.Banks.ToList();
+            
+            return Json(banks, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

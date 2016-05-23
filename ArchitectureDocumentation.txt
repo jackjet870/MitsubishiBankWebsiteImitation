@@ -1,0 +1,24 @@
+Solution : Mitsubishi Bank Website Imitation 
+	Projects : 
+		Domain :
+			Core:
+			
+			Interfaces :
+
+		Infrastructure : 
+			Business:
+
+			Data:
+
+		Services :
+			Interfaces : 
+
+			Listener : 
+
+		TestSection : 
+			MVC.Modules :
+
+			WebAPI.Rest :
+
+		PresentationLayer.Website:
+			
