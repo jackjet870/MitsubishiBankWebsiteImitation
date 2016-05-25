@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Core.MitsubishiBank.BankCommon;
 
 namespace Domain.Core.MitsubishiBank.ATMCommon
 {
     public class AutomatedTellerMachine
     {
-        public int AutomatedTellerMachineId { get; set; }
-        public string AutomatedTellerMachineGuid { get; set; }
+        [Key]
+        public Guid AutomatedTellerMachineId { get; set; }
         public string AutomatedTellerMachineCode { get; set; }
         public string OwnerBankCode { get; set; }
         public double CurrentAviableMoneyAmount { get; set; }
+        public virtual Bank Bank { get; set; }
 
-        public List<AutomatedTellerMachineHistory> OperationsHistory { get; set; }
+        public ICollection<AutomatedTellerMachineHistory> OperationsHistory { get; set; }
 
         public AutomatedTellerMachine()
         {
-            AutomatedTellerMachineGuid = Guid.NewGuid().ToString();
+            OperationsHistory = new List<AutomatedTellerMachineHistory>();
+            AutomatedTellerMachineId = Guid.NewGuid();
         }
 
     }

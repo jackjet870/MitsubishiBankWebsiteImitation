@@ -10,12 +10,15 @@ namespace Domain.Core.MitsubishiBank.BankCommon
     public class BankOperationHistory
     {
         [Key]
-        public int BankOperationHistoryId { get; set; }
-        public string BankOperationHistoryGuid { get; set; }
+        public Guid BankOperationHistoryId { get; set; }
+        public string OperationName { get; set; }
+
+        public virtual Bank Bank { get; set; }
+
 
         public BankOperationHistory()
         {
-            BankOperationHistoryGuid = Guid.NewGuid().ToString();
+            BankOperationHistoryId = Guid.NewGuid();
         }
 
 

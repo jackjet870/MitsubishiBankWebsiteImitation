@@ -12,11 +12,7 @@ namespace Domain.Core.MitsubishiBank.BankCommon
     {
         [Key, ForeignKey("Bank")]
         public Guid BankProfileId { get; set; }
-        public string BankProfileGuid { get; set; }
         public string Name { get; set; }
-        /*
-         *  Code used to identify alias AutomatedTellerMachines
-         */
         public string Code { get; set; } 
         public string Country { get; set; }
         public string Location { get; set; }
@@ -26,7 +22,6 @@ namespace Domain.Core.MitsubishiBank.BankCommon
         public BankProfile()
         {
             BankProfileId = Guid.NewGuid();
-            BankProfileGuid = Guid.NewGuid().ToString();
         }
     }
 }
