@@ -5,22 +5,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Infrastructure.Data.MitsubishiBank.BankContexts;
+using Infrastructure.Data.MitsubishiBank.Repositories;
 
 namespace PresentationLayer.MitsubishiBankWebsite.Controllers.Base
 {
     public class BaseController : Controller
     {
-        public BankContext bankDb;
+        public BankRepository Repository;
 
-        public JsonResult CleanSystemDatabase()
+        public void CleanSystemDatabase()
         {
             Database.SetInitializer(new DropCreateDatabaseAlways<BankContext>());
-            
-            return Json(bankDb, JsonRequestBehavior.AllowGet);
         }
         public BaseController()
         {
-            this.bankDb = new BankContext();
+            this.Repository = new BankRepository();
         }
     }
 }

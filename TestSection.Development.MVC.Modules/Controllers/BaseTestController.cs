@@ -21,6 +21,7 @@ namespace TestSection.Development.MVC.Modules.Controllers
 
         public ActionResult TEST_JSON_FILL_BANKDATA()
         {
+            Database.SetInitializer(new BankContextController());
 
             Bank b1 = new Bank();
             Bank b2 = new Bank();

@@ -15,12 +15,6 @@ namespace PresentationLayer.MitsubishiBankWebsite.Controllers
     public class HomeController : BaseController
     {
 
-        
-        public ActionResult Index()
-        {
-            
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
