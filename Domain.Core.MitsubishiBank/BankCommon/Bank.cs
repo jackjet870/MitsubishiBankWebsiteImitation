@@ -11,18 +11,21 @@ namespace Domain.Core.MitsubishiBank.BankCommon
     public class Bank
     {
         [Key]
-        public int BankId { get; set; }
+        public Guid BankId { get; set; }
         public string BankGuid { get; set; }
-        public BankProfile Profile { get; set; }
-        public List<BankAccount> Accounts { get; set; }
-        public List<AutomatedTellerMachine> BankAutomatedTellerMachines { get; set; }
-        public List<BankOperationHistory> BankOperationsHistory { get; set; }
+        public virtual BankProfile Profile { get; set; } 
+        public virtual ICollection<BankAccount> Accounts { get; set; }
+
+        //public List<AutomatedTellerMachine> BankAutomatedTellerMachines { get; set; }
+        //public List<BankOperationHistory> BankOperationsHistory { get; set; } 
 
 
 
         public Bank()
         {
+            BankId = Guid.NewGuid();
             BankGuid = Guid.NewGuid().ToString();
+            Accounts = new List<BankAccount>();
         }
     }
 }

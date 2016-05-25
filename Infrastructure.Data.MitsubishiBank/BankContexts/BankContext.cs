@@ -15,7 +15,8 @@ namespace Infrastructure.Data.MitsubishiBank.BankContexts
             
         }
         public DbSet<Bank> Banks { get; set; }
-
+        public DbSet<BankProfile> BanksProfile { get; set; }
+        public DbSet<BankAccount> BankAccounts { get; set; }
 
     }
 }
