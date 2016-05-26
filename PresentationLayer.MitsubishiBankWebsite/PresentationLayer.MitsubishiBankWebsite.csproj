@@ -219,12 +219,15 @@
     <Compile Include="Controllers\Default\HomeController.cs" />
     <Compile Include="Controllers\Default\ManageController.cs" />
     <Compile Include="Controllers\Intranet\BankAdminController.cs" />
+    <Compile Include="Controllers\Templates\TEMPLATE_BANK_SCAFFOLD_Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Bank\BankCreateBaseModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TemplateContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Util\NinjectDependencyResolver.cs" />
@@ -237,6 +240,10 @@
     <Content Include="App_Data\Listener\ListenerDb.mdf" />
     <Content Include="App_Data\Listener\ListenerDb_log.ldf">
       <DependentUpon>ListenerDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Template.mdf" />
+    <Content Include="App_Data\Template_log.ldf">
+      <DependentUpon>Template.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -301,6 +308,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\BankAdmin\Index.cshtml" />
+    <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Create.cshtml" />
+    <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Delete.cshtml" />
+    <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Details.cshtml" />
+    <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Edit.cshtml" />
+    <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Index.cshtml" />
+    <Content Include="Views\BankAdmin\CreateBank.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Listener\ListenerFiles\" />
