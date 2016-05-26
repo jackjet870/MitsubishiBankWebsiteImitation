@@ -12,6 +12,7 @@ namespace Domain.Core.MitsubishiBank.BankCommon
     {
         [Key, ForeignKey("Bank")]
         public Guid BankProfileId { get; set; }
+        [Display(Name = "Name")]
         public string Name { get; set; }
         public string Code { get; set; } 
         public string Country { get; set; }

@@ -1,0 +1,62 @@
+﻿@model Domain.Core.MitsubishiBank.BankCommon.Bank
+
+<h2>Show Bank</h2>
+
+<div>
+    <h4>Bank</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profile.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.Code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.Country)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Accounts.First().AccountCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accounts.First().AccountCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Accounts.First().AccountName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accounts.First().AccountName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accounts.First().TotalFinanceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accounts.First().TotalFinanceAmount)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

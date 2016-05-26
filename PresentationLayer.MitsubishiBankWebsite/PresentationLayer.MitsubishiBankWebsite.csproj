@@ -314,6 +314,7 @@
     <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Edit.cshtml" />
     <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Index.cshtml" />
     <Content Include="Views\BankAdmin\CreateBank.cshtml" />
+    <Content Include="Views\BankAdmin\ShowBank.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Listener\ListenerFiles\" />

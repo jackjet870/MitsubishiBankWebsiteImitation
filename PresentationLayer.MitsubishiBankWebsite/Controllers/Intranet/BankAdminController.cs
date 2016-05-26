@@ -87,5 +87,14 @@ namespace PresentationLayer.MitsubishiBankWebsite.Controllers.Intranet
                 return RedirectToAction("Index");
             }
         }
+
+
+        [HttpGet]
+        public ActionResult ShowBank()
+        {
+            BankContext db = new BankContext(); //refactor
+            
+            return View(db.Banks.FirstOrDefault());
+        }
     }
 }
