@@ -16,12 +16,14 @@ namespace PresentationLayer.MitsubishiBankWebsite.Models
             // Add custom user claims here
             return userIdentity;
         }
+        
+        //Extend Identity class
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MitsubishiBankDatabaseConnection", throwIfV1Schema: false)
         {
         }
 

@@ -20,9 +20,7 @@ namespace Domain.Core.MitsubishiBank.CustomerCommon
         public string CustomerGuid { get; set; }
         public BaseProfile Profile { get; set; }
         public BaseAccount Account { get; set; }
-        public List<CustomerHistory> AccountHistory { get; set; }
-
-
+        public virtual  ICollection<CustomerHistory> AccountHistory { get; set; }
         public Customer()
         {
             CustomerGuid = Guid.NewGuid().ToString();
