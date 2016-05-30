@@ -4,22 +4,26 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Domain.Core.MitsubishiBank.BankCommon;
+using Domain.Core.MitsubishiBank.BaseCommon;
+using Domain.Core.MitsubishiBank.CustomerCommon;
 using Domain.Interfaces.MitsubishiBank.BankInterfaces;
 using Infrastructure.Data.MitsubishiBank.BankContexts;
 using Infrastructure.Data.MitsubishiBank.Repositories;
 using PresentationLayer.MitsubishiBankWebsite.Controllers.Base;
+using PresentationLayer.MitsubishiBankWebsite.Models;
 using PresentationLayer.MitsubishiBankWebsite.Models.Bank;
+using PresentationLayer.MitsubishiBankWebsite.Models.Customer;
+using PresentationLayer.MitsubishiBankWebsite.StaticHelpers;
 
 namespace PresentationLayer.MitsubishiBankWebsite.Controllers.Intranet
 {
     public class BankAdminController : BaseController
     {
-        /*
-         * Admin-home
-         */
 
         private BankRepository repository;
 
@@ -27,74 +31,96 @@ namespace PresentationLayer.MitsubishiBankWebsite.Controllers.Intranet
         {
             repository = new BankRepository();
         }
-        public ActionResult Index()
+        public ActionResult Index(string data = "BankManagement")
         {
+            Globals.CurrentAction = data;
             return View();
         }
-
-        [HttpPost]
-        public ActionResult ManageBankAction(string action)
-        {
-            switch (action)
-            {
-                case "create":
-                    return RedirectToAction("CreateBank", "BankAdmin");
-                case "update":
-                    return RedirectToAction("UpdateBank", "BankAdmin");
-                case "show":
-                    return RedirectToAction("ShowBank", "BankAdmin");
-            }
-            return null;
-        }
-
-        [HttpGet]
-        public ActionResult CreateBank()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateBank([Bind(Include = "Id,Name,Code,Country,Location,AccountName,AccountCode,TotalFinanceAmount")] BankCreateBaseModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                Bank bank = new Bank();
-                BankProfile profile = new BankProfile
-                {
-                    BankProfileId = bank.BankId,
-                    Name = model.Name,
-                    Location = model.Location,
-                    Code = model.Code,
-                    Country = model.Country
-                };
-                BankAccount account = new BankAccount
-                {
-                    AccountCode = model.AccountCode,
-                    AccountName = model.AccountName,
-                    TotalFinanceAmount = 
-                    model.TotalFinanceAmount
-                };
-                bank.Profile = profile;
-                bank.Accounts.Add(account);
-
-                Repository.CreateBank(bank, AdministrationAccessLevel.FullAccessToSystem);
-                    
-                return RedirectToAction("Index", "BankAdmin");
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
-        }
-
 
         [HttpGet]
         public ActionResult ShowBank()
         {
-            BankContext db = new BankContext(); //refactor
+            if (repository.ShowInformation(accessLevels: AccessLevels.FullAccess) != null)
+            {
+                var bank = repository.ShowInformation(accessLevels: AccessLevels.FullAccess);
+                return PartialView(bank);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult CustomerManagement()
+        {
+            BankContext db = new BankContext();
+            return PartialView(db.Customers.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult AddCustomer()
+        {
+            return RedirectToAction("RegisterGet", "Account");
+        }
+
+        public string GeneratePassword(AddCustomerViewModel profile)
+        {
+            StringBuilder sb = new StringBuilder();
+            Random r = new Random();
+            sb.Append(profile.LastName[0]);
+            sb.Append(profile.FirstName[1]);
+            sb.Append(r.Next(0, 9));
+            sb.Append(r.Next(0, 9));
+            sb.Append(r.Next(0, 9));
+            var data = sb.ToString();
+            return data;
+        }
+
+        public void SendEmailToCustomer(AddCustomerViewModel profile)
+        {
+            SmtpClient smtp = new SmtpClient();
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("mitsubishibank.customerservice@gmail.com", "mitsubishibank.customerservice1");
+            smtp.Host = "smtp.gmail.com";
+            string address = profile.Email;
+            string message = String.Format("Dear Client {0} {1} \n We are happy you decided to become a customer of the Mitsubishi Corporation Bank", profile.FirstName, profile.LastName);
+            message = message +
+                      String.Format(
+                          "We offer wide range of serives. To access the system you have to use your email address and password generated by the system: \n {0}",
+                          profile.Password);
+
+            smtp.Send("mitsubishibank.customerservice@gmail.com", address, "Welcome to Mitsubishi Bank", message);
+        }
+
+        public Customer AddCustomer(AddCustomerViewModel profile)
+        {
+            Customer customer = new Customer();
+            BaseProfile baseProfile = new BaseProfile();
+            BaseAccount account = new BaseAccount();
+
+            baseProfile.Password = GeneratePassword(profile);
+            baseProfile.FirstName = profile.FirstName;
+            baseProfile.LastName = profile.LastName;
+            baseProfile.MiddleName = profile.MiddleName;
+            baseProfile.Email = profile.Email;
+            baseProfile.Phone = profile.Phone;
+            account.Cash = profile.Cash;
+
+            baseProfile.BaseProfileId = customer.CustomerId;
+            account.BaseAccountId = customer.CustomerId;
+
+            customer.Account = account;
+            customer.Profile = baseProfile;
+
+            BankContext db = new BankContext();
+            db.Customers.Add(customer);
+            db.SaveChanges();
+            //SendEmailToCustomer(profile);
             
-            return View(db.Banks.FirstOrDefault());
+
+            Globals.CurrentAction = "CustomerManagement";
+            return customer;
         }
     }
 }

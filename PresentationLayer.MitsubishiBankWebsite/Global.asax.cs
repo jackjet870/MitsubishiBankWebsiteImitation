@@ -14,7 +14,7 @@ namespace PresentationLayer.MitsubishiBankWebsite
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<BankContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BankContext>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Core.MitsubishiBank.CustomerCommon;
+using System.Web;
+using System.Web.Security;
 
-namespace Domain.Core.MitsubishiBank.BaseCommon
+namespace PresentationLayer.MitsubishiBankWebsite.Models.Customer
 {
-    public class BaseProfile
+    public class AddCustomerViewModel
     {
-        [Key, ForeignKey("Customer")]
-        public Guid BaseProfileId { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -21,13 +17,12 @@ namespace Domain.Core.MitsubishiBank.BaseCommon
         public string MiddleName { get; set; }
         [Required]
         public string Phone { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public BaseProfile()
-        {
-            BaseProfileId = Guid.NewGuid();
-        }
+        public double Cash { get; set; }
+
     }
 }

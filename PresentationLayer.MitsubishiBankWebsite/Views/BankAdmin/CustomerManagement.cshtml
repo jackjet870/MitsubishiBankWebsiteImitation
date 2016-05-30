@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Domain.Core.MitsubishiBank.CustomerCommon.Customer>
+
+<p>
+    @Html.ActionLink("Add Customer", "AddCustomer")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account.Cash)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Profile.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.Cash)
+            </td>
+            <td>
+                <!--@@Html.ActionLink("Edit", "Edit", new { id = item.BaseProfileId }) -->
+                <!--@@Html.ActionLink("Delete", "Delete", new { id = item.BaseProfileId })-->
+            </td>
+        </tr>
+    }
+
+</table>

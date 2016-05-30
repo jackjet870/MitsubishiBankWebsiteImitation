@@ -1,62 +1,98 @@
 ﻿@model Domain.Core.MitsubishiBank.BankCommon.Bank
 
-<h2>Show Bank</h2>
 
-<div>
-    <h4>Bank</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Profile.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Profile.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Profile.Code)
-        </dt>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-body text-center">
+                Bank Profile General Information
+            </div>
+        </div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Profile.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile.Code)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Profile.Code)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile.Country)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Profile.Country)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile.Location)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Profile.Location)
+            </dd>
+        </dl>        
+    </div>
+    <div class="col-lg-4 ">
+        <div class="panel panel-primary">
+            <div class="panel-body text-center">
+                Bank Finance Account Information
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Profile.Code)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Profile.Country)
-        </dt>
+        <hr/>
+        @foreach (var e in Model.Accounts)
+        {
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Accounts.First(p=>p.AccountName==e.AccountName).AccountName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Accounts.First(p => p.AccountName == e.AccountName).AccountName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Accounts.First(p => p.AccountName == e.AccountName).AccountCode)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Accounts.First(p => p.AccountName == e.AccountName).AccountCode)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Accounts.First(p => p.AccountName == e.AccountName).TotalFinanceAmount)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Accounts.First(p => p.AccountName == e.AccountName).TotalFinanceAmount)
+                </dd>
+            </dl>
+        }
+    </div>
+    <div class="col-lg-4 ">
+        <div class="panel panel-primary">
+            <div class="panel-body text-center">
+                Bank Finance Account Information
+            </div>
+        </div>
+        <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Profile.Country)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Profile.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Profile.Location)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Accounts.First().AccountCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Accounts.First().AccountCode)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Accounts.First().AccountName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Accounts.First().AccountName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Accounts.First().TotalFinanceAmount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Accounts.First().TotalFinanceAmount)
-        </dd>
-    </dl>
+        @foreach (var e in Model.BankAutomatedTellerMachines)
+        {
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.BankAutomatedTellerMachines.First(p => p.AutomatedTellerMachineCode == e.AutomatedTellerMachineCode).AutomatedTellerMachineCode)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.BankAutomatedTellerMachines.First(p => p.AutomatedTellerMachineCode == e.AutomatedTellerMachineCode).AutomatedTellerMachineCode)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.BankAutomatedTellerMachines.First(p => p.AutomatedTellerMachineCode == e.AutomatedTellerMachineCode).CurrentAviableMoneyAmount)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.BankAutomatedTellerMachines.First(p => p.AutomatedTellerMachineCode == e.AutomatedTellerMachineCode).CurrentAviableMoneyAmount)
+                </dd>
+                
+            </dl>
+        }
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>

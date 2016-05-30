@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron back" style="height: 600px; background-image: url(../../Content/images/bg_globaltop_sydney.jpg)">
+
+</div>
+<div class="row">
+    <div class="container">
+        <div class="col-lg-3">
+            <div class="thumbnail panel-danger text-center">
+                @if (TempData["message"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">@TempData["message"].ToString()</div>
+                }
+                <form method="get" action="@Url.Action("SignIn", "Site")">
+
+                    <input type="text" name="Email" class="form-control text-center" placeholder="Account Email"/><br/>
+                    <input type="password" name="Password" class="form-control text-center" placeholder="Password"/><br/>
+                    <input class="btn-danger btn-block btn-lg" type="submit" value="Sign in"/>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="thumbnail panel-danger text-center">
+                <div class="btn-danger btn-block btn-lg">News</div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="thumbnail panel-danger text-center">
+                <div class="btn-danger btn-block btn-lg">Services</div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="thumbnail panel-danger text-center">
+                <div class="btn-danger btn-block btn-lg">Developer API</div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+

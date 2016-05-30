@@ -12,8 +12,10 @@ namespace Domain.Core.MitsubishiBank.ATMCommon
     {
         [Key]
         public Guid AutomatedTellerMachineId { get; set; }
+        [Display(Name = "ATM Code")]
         public string AutomatedTellerMachineCode { get; set; }
         public string OwnerBankCode { get; set; }
+        [Display(Name = "Current Cash")]
         public double CurrentAviableMoneyAmount { get; set; }
         public virtual Bank Bank { get; set; }
 

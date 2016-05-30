@@ -12,16 +12,23 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12 no-padding">
-                <nav class="navbar navbar-red">
-                    <div class="nav navbar-nav ">
-                        <a class="nav-item nav-link link-white" href="#">Website Home<span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link link-white" href="#">Admin Home</a>
-                        <a class="nav-item nav-link link-white" href="#">Documentation </a>
-                    </div>
+                <nav class="navbar navbar-inverse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Mitsubishi Bank Management Studio</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Control tools</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Index","BankAdmin", new {data = "BankManagement"})">Bank management</a></li>
+                                <li><a href="@Url.Action("Index","BankAdmin", new {data = "CustomerManagement"})">Customer management</a></li>
+                                <li><a href="@Url.Action("Index","BankAdmin", new {data = "EmployeeManagement"})">Employee management</a></li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+
                 </nav>
             </div>
         </div>
-       
         @RenderBody()
     </div>
 @Scripts.Render("~/bundles/jquery")

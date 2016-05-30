@@ -30,6 +30,10 @@ namespace Infrastructure.Data.MitsubishiBank.Repositories
                     db.Banks.Add(bank);
                     db.SaveChanges();
                 }
+                else
+                {
+                    return db.Banks.First();
+                }
             }
             return bank;
         }
@@ -141,8 +145,15 @@ namespace Infrastructure.Data.MitsubishiBank.Repositories
 
         public Bank ShowInformation(AccessLevels accessLevels)
         {
-            //Bug here
-            return db.Banks.First();
+            try
+            {
+                return db.Banks.First();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            
         }
 
 

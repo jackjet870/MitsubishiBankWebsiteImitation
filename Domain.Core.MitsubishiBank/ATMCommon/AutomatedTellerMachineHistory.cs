@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +10,22 @@ namespace Domain.Core.MitsubishiBank.ATMCommon
 {
     public class AutomatedTellerMachineHistory
     {
-        public int AutomatedTellerMachineHistoryId { get; set; }
-        public string AutomatedTellerMachineHistoryGuid { get; set; }
+        [Key]
+        public Guid AutomatedTellerMachineHistoryId { get; set; }
 
         public double OperationAmount { get; set; }
         public string OperationInitializerGuid { get; set; }
         public string OperationRecieverGuid { get; set; }
-        public DateTime OperationExecutedTime { get; set; }
-        public OperationStatusCode OperationStatus { get; set; }
+        public string OperationExecutedTime { get; set; }
+        public string OperationStatus { get; set; }
 
-        public AutomatedTellerMachineFunctionality Functionality { get; set; }
+        public string CalledFunctionality { get; set; }
+        public virtual AutomatedTellerMachine AutomatedTellerMachine { get; set; }
+
 
         public AutomatedTellerMachineHistory()
         {
-            AutomatedTellerMachineHistoryGuid = Guid.NewGuid().ToString();
+            AutomatedTellerMachineHistoryId = Guid.NewGuid();
         }
 
     }

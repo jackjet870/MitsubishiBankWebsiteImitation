@@ -1,0 +1,72 @@
+﻿@model Domain.Core.MitsubishiBank.CustomerCommon.Customer
+
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-body text-center">
+            @{
+                string welcome = Model.Profile.FirstName + " " + Model.Profile.LastName;
+            }
+            Welcome to your profile, @welcome
+        </div>
+    </div>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile.FirstName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Profile.FirstName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Profile.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Account.Cash)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Account.Cash)
+            </dd>
+        </dl>
+        <br/>
+        @Html.ActionLink("Sign Out","Exit","Site", null, new {@class = "btn btn-block btn-lg btn-primary"})
+    </div>
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-lg-4">
+                <form method="post" action="@Url.Action("TransactionBetweenCustomers", "Process")">
+                    <p>Make transaction of money to another account</p>
+                    <input type="password" name="Password" class="form-control text-center" placeholder="Confirm password"/><br/>
+                    <input type="text" name="Amount" class="form-control text-center" placeholder="Max sum is @Model.Account.Cash" pattern="\d{1,5}"/><br/>
+                    <input type="text" name="Email" class="form-control text-center" placeholder="Email of reciever"/><br/>
+                    <input class="btn-danger btn-block btn-lg" type="submit" value="Process"/>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form method="post" action="@Url.Action("MakePayment", "Process")">
+                    <p>Make payment of consumed service's costs</p>
+                    <input type="password" name="Password" class="form-control text-center" placeholder="Confirm password"/><br/>
+                    <input type="text" name="Amount" class="form-control text-center" placeholder="Max sum is @Model.Account.Cash" pattern="\d{1,5}" /><br />
+                    <select class="form-control text-center" name="ServiceName">
+                        <option value="Mobile Cost">Mobile Cost</option>
+                        <option value="Mobile Cost">Apartment Cost</option>
+                        <option value="Mobile Cost">Education Cost</option>
+                        <option value="Mobile Cost">Entertiment Cost</option>
+                    </select><br/>
+                    <input class="btn-danger btn-block btn-lg" type="submit" value="Process" />
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form method="get" action="@Url.Action("PrintHistory", "Process")">
+                    <p>Print my history of actions</p>
+                    <input class="btn-danger btn-block btn-lg" type="submit" value="Process"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

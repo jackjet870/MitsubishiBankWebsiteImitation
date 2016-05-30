@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PresentationLayer.MitsubishiBankWebsite.Models
@@ -58,8 +59,9 @@ namespace PresentationLayer.MitsubishiBankWebsite.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
+        public bool RememberMe { get; set; } = false;
+
+
     }
 
     public class RegisterViewModel
@@ -79,6 +81,7 @@ namespace PresentationLayer.MitsubishiBankWebsite.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        public Guid CustomerId { get; set; }
     }
 
     public class ResetPasswordViewModel

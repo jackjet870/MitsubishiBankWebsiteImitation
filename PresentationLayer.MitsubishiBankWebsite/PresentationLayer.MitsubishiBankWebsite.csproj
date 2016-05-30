@@ -218,26 +218,26 @@
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\Default\HomeController.cs" />
     <Compile Include="Controllers\Default\ManageController.cs" />
+    <Compile Include="Controllers\Internet\ProcessController.cs" />
     <Compile Include="Controllers\Internet\SiteController.cs" />
     <Compile Include="Controllers\Intranet\BankAdminController.cs" />
-    <Compile Include="Controllers\Templates\TEMPLATE_BANK_SCAFFOLD_Controller.cs" />
+    <Compile Include="Controllers\Templates\BaseProfilesController.cs" />
+    <Compile Include="Controllers\Templates\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bank\BankCreateBaseModel.cs" />
+    <Compile Include="Models\Customer\AddCustomerViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TemplateContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="StaticHelpers\Globals.cs" />
     <Compile Include="Util\NinjectDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Bank\BankDb.mdf" />
-    <Content Include="App_Data\Bank\BankDb_log.ldf">
-      <DependentUpon>BankDb.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\Listener\ListenerDb.mdf" />
     <Content Include="App_Data\Listener\ListenerDb_log.ldf">
       <DependentUpon>ListenerDb.mdf</DependentUpon>
@@ -250,6 +250,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bg_globaltop_sydney.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -304,7 +305,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\RegisterGet.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
@@ -325,12 +326,25 @@
     <Content Include="Views\TEMPLATE_BANK_SCAFFOLD_\Index.cshtml" />
     <Content Include="Views\BankAdmin\CreateBank.cshtml" />
     <Content Include="Views\BankAdmin\ShowBank.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\BankAdmin\CustomerManagement.cshtml" />
+    <Content Include="Views\BaseProfiles\Create.cshtml" />
+    <Content Include="Views\BaseProfiles\Delete.cshtml" />
+    <Content Include="Views\BaseProfiles\Details.cshtml" />
+    <Content Include="Views\BaseProfiles\Edit.cshtml" />
+    <Content Include="Views\BaseProfiles\Index.cshtml" />
+    <Content Include="Views\BankAdmin\AddCustomer.cshtml" />
+    <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutNormal.cshtml" />
+    <Content Include="Views\Site\MyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\Bank\" />
     <Folder Include="App_Data\Listener\ListenerFiles\" />
     <Folder Include="Views\Bank\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Site\" />
+    <Folder Include="Views\Process\" />
+    <Folder Include="Views\TestCustomer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
