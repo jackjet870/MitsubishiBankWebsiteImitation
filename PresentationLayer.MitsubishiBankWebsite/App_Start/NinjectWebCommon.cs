@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(PresentationLayer.MitsubishiBankWebsite.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(PresentationLayer.MitsubishiBankWebsite.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(PresentationLayer.MitsubishiBankWebsite.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(PresentationLayer.MitsubishiBankWebsite.App_Start.NinjectWebCommon), "Stop")]
 
-namespace PresentationLayer.MitsubishiBankWebsite
+namespace PresentationLayer.MitsubishiBankWebsite.App_Start
 {
     using System;
     using System.Web;
@@ -61,7 +61,6 @@ namespace PresentationLayer.MitsubishiBankWebsite
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            System.Web.Mvc.DependencyResolver.SetResolver(new Util.NinjectDependencyResolver(kernel));
-        }
+        }        
     }
 }

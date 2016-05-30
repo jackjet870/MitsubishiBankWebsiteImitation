@@ -16,14 +16,13 @@ namespace Domain.Core.MitsubishiBank.CustomerCommon
          * History : stores all transactions records.
          */
 
-        public int CustomerId { get; set; }
-        public string CustomerGuid { get; set; }
-        public BaseProfile Profile { get; set; }
-        public BaseAccount Account { get; set; }
+        public Guid CustomerId { get; set; }
+        public virtual BaseProfile Profile { get; set; }
+        public virtual BaseAccount Account { get; set; }
         public virtual  ICollection<CustomerHistory> AccountHistory { get; set; }
         public Customer()
         {
-            CustomerGuid = Guid.NewGuid().ToString();
+            CustomerId = Guid.NewGuid();
         }
     }
 }
